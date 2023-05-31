@@ -2,14 +2,26 @@ import random
 
 andrewTateMatrix = [
     [
-        0, 0, 0
+        0, 0, 0,0, 0, 0, 0
     ],
     [
-        0, 0, 0
+        0, 0, 0,0, 0, 0, 0
     ],
     [
-        0, 0, 0
-    ]
+        0, 0, 0,0, 0, 0, 0
+    ],
+    [
+        0, 0, 0,0, 0, 0, 0
+    ],
+    [
+        0, 0, 0,0, 0, 0, 0
+    ],
+    [
+        0, 0, 0,0, 0, 0, 0
+    ],
+    [
+        0, 0, 0,0, 0, 0, 0
+    ],
 ]
 
 # --- FUNCTIONS
@@ -20,8 +32,8 @@ def check_num_db_ex (arr, x, num, y):
         status = False
 
     counter = 0
-    for nX in range(0, x):
-        for number in range(3):
+    for nX in range(7):
+        for number in range(7):
             if arr[nX][number] == num:
                 counter += 1
                 if counter == 2:
@@ -34,8 +46,8 @@ def check_num_db_ex (arr, x, num, y):
 def check_num_ex(num):
     numToDeleteIndexes = []
 
-    for x in range(3):
-        for y in range(3):
+    for x in range(7):
+        for y in range(7):
             if andrewTateMatrix[x][y] == num:
                 numToDeleteIndexes.append([x, y])
         
@@ -47,8 +59,8 @@ def generate_random_num():
 def is_game_over():
     sum = 0
 
-    for x in range(3):
-        for y in range(3):
+    for x in range(7):
+        for y in range(7):
             sum += andrewTateMatrix[x][y]
 
     return sum == 0
@@ -58,13 +70,12 @@ def deleteNbrsFromMtx(nbrs):
         andrewTateMatrix[number[0]][number[1]] = 0
 
 # Fill the matrix in
-for x in range(3):
-    for y in range(3):
+for x in range(7):
+    for y in range(7):
         result = False
         
         while(result == False):
-            print('Enter a value for: (', x, ':', y, ')')
-            val = input()
+            val = input('Enter a value for: ('+ str(x)+ ':'+ str(y)+ ')')
             result = check_num_db_ex(andrewTateMatrix, x, int(val), y)
 
         andrewTateMatrix[x][y] = int(val)
